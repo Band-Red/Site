@@ -1,0 +1,326 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.learning-roadmap {
+  width: 90%;
+  max-width: 800px;
+  height: auto;
+  min-height: 500px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.road-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.road-path {
+  fill: none;
+  stroke: #dadce0;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.active-road {
+  fill: none;
+  stroke: #1a73e8;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: none;
+}
+
+.active-road.animated {
+  transition: stroke-dashoffset 1.5s ease-in-out;
+}
+
+.steps-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  z-index: 2;
+}
+
+.learning-step {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    0 0 0 3px rgba(255, 255, 255, 0.8);
+  border: 2px solid #dadce0;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.learning-step.active {
+  background: #1a73e8;
+  border-color: #1a73e8;
+  box-shadow: 
+    0 4px 15px rgba(26, 115, 232, 0.3),
+    0 0 0 4px rgba(26, 115, 232, 0.1);
+  transform: translate(-50%, -50%) scale(1.15);
+  z-index: 20;
+}
+
+.learning-step:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 0 0 3px rgba(255, 255, 255, 0.9);
+}
+
+.step-number {
+  width: 24px;
+  height: 24px;
+  background: #1a73e8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.learning-step.active .step-number {
+  background: white;
+  color: #1a73e8;
+  transform: scale(1.2);
+}
+
+.step-title {
+  font-size: 10px;
+  font-weight: 500;
+  color: #202124;
+  text-align: center;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+  padding: 0 2px;
+}
+
+.learning-step.active .step-title {
+  color: white;
+  font-weight: 600;
+}
+
+.js-badge {
+  background: #fbbc04;
+  color: #202124;
+  padding: 1px 4px;
+  border-radius: 8px;
+  font-size: 8px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  background: white;
+  padding: 10px 16px;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 30;
+}
+
+.control-btn {
+  width: 36px;
+  height: 36px;
+  background: #f8f9fa;
+  border: 2px solid #dadce0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #5f6368;
+}
+
+.control-btn:hover {
+  background: #1a73e8;
+  border-color: #1a73e8;
+  color: white;
+  transform: scale(1.1);
+}
+
+.progress-info {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 160px;
+  z-index: 30;
+}
+
+.progress-title {
+  font-size: 12px;
+  color: #5f6368;
+  margin-bottom: 6px;
+}
+
+.progress-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a73e8;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #dadce0;
+  border-radius: 2px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #1a73e8;
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+/* التصميم المتجاوب */
+@media (max-width: 768px) {
+  .learning-roadmap {
+    padding: 15px;
+    min-height: 400px;
+  }
+  
+  .learning-step {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .step-number {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+  
+  .step-title {
+    font-size: 8px;
+  }
+  
+  .js-badge {
+    font-size: 7px;
+    padding: 1px 3px;
+  }
+  
+  .progress-info {
+    min-width: 140px;
+    padding: 10px;
+    top: 15px;
+    left: 15px;
+  }
+  
+  .progress-title {
+    font-size: 11px;
+  }
+  
+  .progress-value {
+    font-size: 18px;
+  }
+  
+  .controls {
+    padding: 8px 14px;
+  }
+  
+  .control-btn {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .learning-roadmap {
+    padding: 10px;
+    min-height: 350px;
+  }
+  
+  .learning-step {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .step-number {
+    width: 18px;
+    height: 18px;
+    font-size: 9px;
+    margin-bottom: 2px;
+  }
+  
+  .step-title {
+    font-size: 7px;
+  }
+  
+  .js-badge {
+    font-size: 6px;
+    padding: 0 2px;
+  }
+  
+  .progress-info {
+    min-width: 120px;
+    padding: 8px;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .progress-title {
+    font-size: 10px;
+  }
+  
+  .progress-value {
+    font-size: 16px;
+  }
+  
+  .controls {
+    padding: 6px 12px;
+    bottom: 15px;
+  }
+  
+  .control-btn {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .material-symbols-outlined {
+    font-size: 16px;
+  }
+}
