@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { ChevronLeft, ChevronRight } from "lucide-react";
 import Introduction from "../components/pragraphs/Introduction";
 import ProjectCard from "../components/Cards/ProjectCard";
 
@@ -54,15 +53,18 @@ export default function MyProject() {
           </svg>
         </button>
 
-        <div className="cards">
-          {projectsData.map((project, index) => (
-            <ProjectCard
-              key={index}
-              project={project}
-              active={index === current}
-            />
-          ))}
-        </div>
+        {/* Cards Container */}
+        <span id={"Cards-Container"}>
+          <div className="cards">
+            {projectsData.map((project, index) => (
+              <ProjectCard
+                key={index}
+                project={project}
+                active={index === current}
+              />
+            ))}
+          </div>
+        </span>
 
         <button onClick={nextProject} className={"arrow"}>
           <svg xmlns="http://www.w3.org/2000/svg" className="ionicon" viewBox="0 0 512 512">

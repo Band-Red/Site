@@ -9,7 +9,7 @@ export default function Awards() {
       {
         id: 1,
         title: "Honer & Awards",
-        subTitle: "This page displays my most notable professional and academic achievements. Every achievement represents an important stage in my journey of development. Whether individually or by working within a team"
+        subTitle: "This page displays my most notable professional and academic achievements. Whether individually or by working within a team"
       }
   ];
 

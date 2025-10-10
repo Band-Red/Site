@@ -16,16 +16,6 @@ export default function Overview() {
                     <BtnAnchor name={"cta-button"} page={"#Contact"}>Get in Touch</BtnAnchor>
 
                     <BtnAnchor name={"cta-button secondary"} page={"#About"} target={"_top"}>View Profile</BtnAnchor>
-
-                    {/* <BtnAnchor name={"cta-button secondary"} page={"#Contact"} download={""} >
-                        <i className={"fas fa-download"}></i>
-                        <span>Download CV</span>
-                    </BtnAnchor>
-
-                    <BtnAnchor name={"cta-button secondary"} src={"https://github.com/Band-Red"} target={"_blank"}  >
-                        <i className={"fab fa-linkedin"}></i>
-                        <span>My LinkedIn</span>
-                    </BtnAnchor> */}
                 </div>
             </div>
         </div>

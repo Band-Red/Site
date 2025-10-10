@@ -1,6 +1,5 @@
 import Introduction from "../components/pragraphs/Introduction";
-// import CardProject from "../components/Cards/CardProject"
-
+import DividerOpecity from "../components/dividers/DividerInlineopecity";
 
 export default function BlogTutorials() {
   return (
@@ -10,6 +9,8 @@ export default function BlogTutorials() {
         title={"Blog & Tutorials"} 
         subTitle={`I share with you some articles and practical explanations that I have prepared.`}
       />
+
+      <DividerOpecity />
 
       <div className={"carousel-Blog"}>
         
