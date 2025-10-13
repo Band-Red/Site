@@ -9,7 +9,7 @@ export default function Awards() {
       {
         id: 1,
         title: "Honer & Awards",
-        subTitle: "This page displays my most notable professional and academic achievements. Whether individually or by working within a team"
+        subTitle: "Displays my most notable professional and academic achievements. Whether individually or by working within a team"
       }
   ];
 
@@ -46,6 +46,30 @@ export default function Awards() {
               eventDate={"January 2023"}  
               suorceImg={".//"} 
               describeImg={""} 
+            />
+            <CardAwards  
+              rank={"1st"} 
+              eventName={"Hackathon Creative Design Awards"} 
+              descriptionEvent={`Won the International Creative Design Award 2023 for designing user interfaces for an innovative educational app, distinguished by simplicity, aesthetics, and ease of use.`} 
+              eventDate={"January 2023"}  
+              suorceImg={".//"} 
+              describeImg={""} 
+            />
+            <CardAwards  
+              rank={"1st"} 
+              eventName={"Hackathon Creative Design Awards"} 
+              descriptionEvent={`Won the International Creative Design Award 2023 for designing user interfaces for an innovative educational app, distinguished by simplicity, aesthetics, and ease of use.`} 
+              eventDate={"January 2023"}  
+              suorceImg={".//"} 
+              describeImg={""} 
+            />
+            <CardAwards  
+              rank={"1st"} 
+              eventName={"Hackathon Creative Design Awards"} 
+              descriptionEvent={`Won the International Creative Design Award 2023 for designing user interfaces for an innovative educational app, distinguished by simplicity, aesthetics, and ease of use.`} 
+              eventDate={"January 2023"}  
+              suorceImg={".//"} 
+              describeImg={"ss"} 
             />
           </div>
       </span>

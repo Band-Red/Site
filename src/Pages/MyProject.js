@@ -46,7 +46,7 @@ export default function MyProject() {
           subTitle={"I present to you a group of the most prominent projects that I have implemented recently."} 
       />
 
-      <div className={"carousel"}>
+      <div className={"carousel-projects"}>
         <button onClick={prevProject} className={"arrow"}>
           <svg xmlns="http://www.w3.org/2000/svg" className="ionicon" viewBox="0 0 512 512">
             <path  d="M328 112L184 256l144 144" />
@@ -54,8 +54,7 @@ export default function MyProject() {
         </button>
 
         {/* Cards Container */}
-        <span id={"Cards-Container"}>
-          <div className="cards">
+          <div className="Container-Cards">
             {projectsData.map((project, index) => (
               <ProjectCard
                 key={index}
@@ -64,7 +63,6 @@ export default function MyProject() {
               />
             ))}
           </div>
-        </span>
 
         <button onClick={nextProject} className={"arrow"}>
           <svg xmlns="http://www.w3.org/2000/svg" className="ionicon" viewBox="0 0 512 512">
