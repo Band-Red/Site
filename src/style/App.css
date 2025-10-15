@@ -662,7 +662,7 @@ div#Container-SocialMedia {
     align-items: center;
     inset: 0.2px solid #6C7A89;
     box-shadow: 0.5px 0.5px 8px 0 #6C7A8925;
-    min-inline-size: 200px;
+    min-inline-size: 170px;
     max-inline-size: 350px;
     border-radius: 8px;
 
@@ -788,7 +788,8 @@ div#Container-SocialMedia {
 .description {
   max-width: 800px;
   margin-block: 3.5rem 0;
-  color: #ccc;
+  /* color: #ccc; */
+  color: #8A99A7;
   font-size: 1rem;
   line-height: 1.6;
   position: relative;
@@ -802,7 +803,7 @@ div#Container-SocialMedia {
 
   .highlight {
     font-weight: bold;
-    color: #fff;
+    /* color: #fff; */
   }
 }
 
@@ -951,7 +952,7 @@ div#Container-SocialMedia {
         top: -16px;
         left: 12px;
         padding: 4px 8px;
-        font-size: 14px;
+        font-size: 1rem;
         color: #8A99A7;
         background: white;
         position: absolute;
@@ -963,10 +964,11 @@ div#Container-SocialMedia {
         width: 99.7%;
         padding: 8px 16px;
         font-size: 16px;
+        color: #6C7A89;
         background: transparent;
         outline: none;
         border: none;
-        border-radius: 0 0 6px 6px;
+        /* border-radius: 0 0 6px 6px; */
         
         &::placeholder {
           font-size: 14px;
@@ -1019,16 +1021,17 @@ div#Container-SocialMedia {
 
     & button {
       cursor: pointer;
-      width: 100%;
+      width: calc(100% / 2 + 20px);
       padding-block: 12px;
       padding-inline: 1rem;
+      margin-inline: auto;
       font-size: 16px;
       font-weight: 600;
       color: white;
       background-color: #8A99A775;
       border: none;
       border-radius: 8px;
-      min-inline-size: cac((100%/2) -20px);
+      /* min-inline-size: calc((100% / 2) - 20px); */
       text-shadow: 0.01px 0.01px 2px #8A99A7;
       transition: background-color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 
@@ -1146,14 +1149,14 @@ div#Container-SocialMedia {
         & .contact-icon {
           width: 60px;
           height: 60px;
-          border-radius: 50%;
+          margin-right: 15px;
+          font-size: 1.5rem;
+          background: rgba(255, 255, 255, 0.2);
           display: flex;
+          flex-shrink: 0;
           align-items: center;
           justify-content: center;
-          margin-left: 15px;
-          background: rgba(255, 255, 255, 0.2);
-          font-size: 1.5rem;
-          flex-shrink: 0;
+          border-radius: 50%;
         }
 
         & .contact-icon ~ .contact-details {

@@ -26,6 +26,20 @@ export default function MyProject() {
         "Name project [3]: is a digital platform that provides crowdfunding and community-driven financial support for small businesses. It fosters growth, transparency, and collaboration between users.",
       skills: ["Crowdfunding", "FinTech", "Community Growth"],
     },
+    {
+      title: "Name project [4]",
+      image: "./images/",
+      description:
+        "Name project [4]: is a digital platform that provides crowdfunding and community-driven financial support for small businesses. It fosters growth, transparency, and collaboration between users.",
+      skills: ["Crowdfunding", "FinTech", "Community Growth"],
+    },
+    {
+      title: "Name project [5]",
+      image: "./images/",
+      description:
+        "Name project [5]: is a digital platform that provides crowdfunding and community-driven financial support for small businesses. It fosters growth, transparency, and collaboration between users.",
+      skills: ["Crowdfunding", "FinTech", "Community Growth"],
+    },
   ];
 
   const [current, setCurrent] = useState(1); // Default on Last Project added
@@ -75,6 +89,7 @@ export default function MyProject() {
       <div className="description">
         <h3>{projectsData[current].title}</h3>
         <p>{projectsData[current].description}</p>
+        <br />
         <p>
           <span className="highlight">Skills:</span>{" "}
           {projectsData[current].skills.join(", ")}
