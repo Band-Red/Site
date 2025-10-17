@@ -1,5 +1,15 @@
+import StatItem from "../Cards/StatItem";
 
-export default function CardAwards({rank, eventName, descriptionEvent, eventDate,picture ,suorceImg,describeImg}) {
+export default function CardAwards({rank, eventName, descriptionEvent, eventDate,picture ,suorceImg,describeImg, items=[]}) {
+
+    const statItems = items.map((item) => (
+        <StatItem key={item.id} icon={item.icon}>
+        {item.text}
+        </StatItem>
+    ));
+
+
+
   return (
     <div className={"card"}>
         <div className={"card-content"}>
@@ -11,8 +21,9 @@ export default function CardAwards({rank, eventName, descriptionEvent, eventDate
             <p className={"Description-Event"}>{descriptionEvent}</p>
 
             <div className={"stats"}>
-                <div className={"stat-item"}>
-                    <i className={"fas fa-medal"}></i>
+                {statItems}
+                {/* <div className={"stat-item"}>
+                    <i className={"icon"}></i>
                     <span>First Place</span>
                 </div>
             
@@ -24,7 +35,7 @@ export default function CardAwards({rank, eventName, descriptionEvent, eventDate
                 <div className={"stat-item"}>
                     <i className={"fas fa-globe"}></i>
                     <span>Global Recognition</span>
-                </div>
+                </div> */}
             </div>
 
             <span className={"Event-date"}> {eventDate} </span>

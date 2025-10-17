@@ -14,7 +14,7 @@ export default function InfoSection() {
         id: 2,
         icon: "",
         title: "Phone",
-        value:  "+966 5×× ××× ××××",
+        value:  "+966 5×× ××× ×××",
         link: ''
         },
         {

@@ -17,28 +17,28 @@ export default function MyProject() {
       image: "./images/",
       description:
         "Name project[2]: is a mobile app that digitizes traditional debt recording for small businesses, enabling secure and private delayed payments through a digital card. It promotes transparency, trust, and financial literacy with features for savings, investment, and community funds.",
-      skills: ["Project Management", "ERP", "Financial Tech", "Solution Architecture"],
+      skills: ["Project Management", "Financial Tech", "Solution Architecture"],
     },
     {
       title: "Name project [3]",
       image: "./images/",
       description:
         "Name project [3]: is a digital platform that provides crowdfunding and community-driven financial support for small businesses. It fosters growth, transparency, and collaboration between users.",
-      skills: ["Crowdfunding", "FinTech", "Community Growth"],
+      skills: ["funding", "Tech", "Community"],
     },
     {
       title: "Name project [4]",
       image: "./images/",
       description:
         "Name project [4]: is a digital platform that provides crowdfunding and community-driven financial support for small businesses. It fosters growth, transparency, and collaboration between users.",
-      skills: ["Crowdfunding", "FinTech", "Community Growth"],
+      skills: ["Crowdfunding", "FinTech", "Community"],
     },
     {
       title: "Name project [5]",
       image: "./images/",
       description:
         "Name project [5]: is a digital platform that provides crowdfunding and community-driven financial support for small businesses. It fosters growth, transparency, and collaboration between users.",
-      skills: ["Crowdfunding", "FinTech", "Community Growth"],
+      skills: ["Crowdfunding", "FinTech", "Community "],
     },
   ];
 
@@ -62,7 +62,7 @@ export default function MyProject() {
 
       <div className={"carousel-projects"}>
         <button onClick={prevProject} className={"arrow"}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="ionicon" viewBox="0 0 512 512">
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon-left" viewBox="0 0 512 512">
             <path  d="M328 112L184 256l144 144" />
           </svg>
         </button>
@@ -79,7 +79,7 @@ export default function MyProject() {
           </div>
 
         <button onClick={nextProject} className={"arrow"}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="ionicon" viewBox="0 0 512 512">
+          <svg xmlns="http://www.w3.org/2000/svg" className="icon-right" viewBox="0 0 512 512">
             <path d="M184 112l144 144-144 144" />
           </svg>
         </button>

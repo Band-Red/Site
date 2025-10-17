@@ -1,7 +1,7 @@
 
-export default function ContactItem({key, icon, title, value, link}) {
+export default function ContactItem({ icon, title, value, link}) {
   return (
-    <div className="contact-item" key={key}>
+    <div className="contact-item">
         <i className="contact-icon">
             {icon}
         </i>

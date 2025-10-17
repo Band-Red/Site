@@ -5,6 +5,7 @@ import SocialMedia from '../components/Buttons/BtnSocialMedia';
 export default function Overview() {
   return (
     <>
+        {/* <base href='assests/'/> */}
         <div className={"overview-content"}>
             <Avatar boxName={"Avatar-Profile"} name={"profile-image"} path={".//assests/image/9.jpeg"} description={"Avatar Account"} load={"lazy"} />
 

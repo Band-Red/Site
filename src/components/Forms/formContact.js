@@ -15,7 +15,7 @@ export default function FormContact() {
   
   const [clicked, setClicked] = useState(false);
   
-  const [btnName, setBtnName] = useState("Send Message");
+  const [btnName, setBtnName] = useState("Send");
 
   const subjects = [
     {
@@ -50,14 +50,13 @@ export default function FormContact() {
     return <option key={option.id} value={option.value}>{option.content}</option>;
   });
 
-  function handleClick() {
-    // btnName === "Send Message" ? setBtnName("Success Send Message") : setBtnName("Yarob");
-  }
+  /* function handleClick() {
+    btnName === "Send Message" ? setBtnName("Success Send Message") : setBtnName("Yarob");
+  }*/
 
   return (
     <form id={"contact-form"} onSubmit={(e) => {e.preventDefault();}} action={"#"} method={"POST"}>
       <legend> Get in Touch</legend>
-
 
         <Input
           title={"Name"} 
