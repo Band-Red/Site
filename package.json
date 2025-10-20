@@ -2,7 +2,7 @@
   "name": "my-Website",
   "version": "0.1.0",
   "homepage": "https://Band-Red.github.io/Site",
-  "description": "My React site",
+  "description": "My Personal site",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
