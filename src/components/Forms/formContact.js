@@ -63,7 +63,9 @@ export default function FormContact() {
           type={"text"} 
           name={"name"} 
           placehold={"Enter name"} 
-          pattern={``}
+          pattern={"[A-Za-z]"}
+          minLimit={8}
+          maxLimit={25}
           value={formData.name}
           change= {(e) => {
                     setFormData({...formData, name: e.target.value});
@@ -78,6 +80,7 @@ export default function FormContact() {
           name={"Email"} 
           placehold={"Enter email"}
           pattern={'@'} 
+          minLimit={8}
           value={formData.email} 
           change= {(e) => {
                     setFormData({...formData, email: e.target.value});
