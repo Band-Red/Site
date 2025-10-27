@@ -3,48 +3,39 @@
   padding: 0;
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
-
-/* head, head::after, head::before {
-  display: none;
-} */
 
 html {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
-  scroll-snap-align: start;
-  overflow-x: hidden;
+  /* scroll-snap-type: start y mandatory; */
+  overflow: hidden auto;
   scroll-behavior: smooth;
-
-  &::-webkit-scrollbar-thumb {
-    /* width: 10px; */
-    background-color: transparent;
-  }
 }
 
-#root {
-  min-width: 40vmin;
-  max-width: 100vmax;
-  width: inherit;
-  /* height: inherit; */
-  /* min-height: 50vmin; */
-  position: relative;
-  background-color: #Fafafa;
-  display: grid;
-  grid-template: auto 1fr auto / auto 1fr auto;
-  place-items: center center;
-  overflow-x: hidden;
-}
-
-html:lang(en) #root{
+html:lang(en) #root {
   direction: ltr;
   text-align: left;
 }
 
-html:lang(ar) #root{
+html:lang(ar) #root {
   direction: rtl;
   text-align: right;
+}
+
+#root {
+  /* min-width: 40vmin; */
+  /* aspect-ratio: 1/3; 
+  width: inherit;*/
+  /* height: inherit; */
+  /* min-height: 50vmin; */
+  width: 100%;
+  position: relative;
+  background-color: #Fafafa;
+  display: grid;
+  grid-template: auto 1fr auto / auto 1fr auto;
+  place-items: center;
+  overflow-y: visible;
 }
 
 #root :is(a) {
@@ -54,9 +45,7 @@ html:lang(ar) #root{
 
 .headerBar {
   top: 0px;
-  width: 100vw;
-  padding-block: 1vmax;
-  padding-inline: clamp(15px, 3.91vw, 100px);
+  /* padding-block: 1vmax; */
   filter: grayscale(15px);
   background-color: rgba(255, 255, 255, 0.06);
   position: sticky;
@@ -66,17 +55,16 @@ html:lang(ar) #root{
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  border-radius: 1.2vmax;
+  /* border-radius: 1.2vmax; */
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background-color: hsla(0, 0%, 100%, .8);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
-  z-index: 1;
+  box-shadow: 0 2px 10px #0000001a;
+  z-index: 10;
 
 
   & #user-name > a {
     font-family: "Inter", sans-serif;
-    font-size: clamp(1rem, 15vw, 1.5rem);
     font-weight: 800;
     color: transparent;
     background:linear-gradient(to right, #6C7A89 45%, #FFA07A 100%);;
@@ -86,7 +74,7 @@ html:lang(ar) #root{
 }
 
 .Container-buttons {
-  width: clamp(150px, 1vw, 200px);
+  /* width: clamp(150px, 1vw, 200px); */
   position: relative;
   display: flex;
   flex-direction: row;
@@ -96,9 +84,8 @@ html:lang(ar) #root{
 }
 
 .toggle-container {
-  width: 5rem; /* w-24 */
-  height: 2.5rem; /* h-12 */
-  padding: 0.25rem; /* p-1 */
+  /* width: 5rem; w-24 
+  height: 2.5rem; h-12 */
   background-color: #d1d5db; /* bg-gray-300 - الحالة الافتراضية */
   position: relative;
   box-shadow: inset 0 0 2vmin rgba(0, 0, 0, 0.1);
@@ -112,13 +99,10 @@ html:lang(ar) #root{
         
 .toggle-button {
   cursor: pointer;
-  width: 2rem; /* w-10 */
-  height: 2rem; /* h-10 */
-  /* height: fit-content; */
   padding: 4px;
-  font-size: 0.875rem; /* text-sm */
+  /* font-size: 0.875rem; text-sm */
   font-weight: 700;
-  color: #374151; 
+  color: #6C7A89; 
   background-color: white;
   display: flex;
   align-items: center;
@@ -128,8 +112,8 @@ html:lang(ar) #root{
   border-radius: 9999rem;
   caret-shape: circle;
   transition: transform 0.3s ease-in-out;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
-              0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+  box-shadow: 0 4px 6px -1px #0000001a, 
+              0 2px 4px -1px #0000000f; /* shadow-md */
 }
 
 .toggle-button.active {
@@ -165,18 +149,18 @@ div#messageContainer {
   cursor: pointer;
   /* width: clamp(45px, 2.3vw + 0.46rem, 60px);
   height: clamp(45px, 2.1vw + 0.46rem, 60px); */
-  padding: 0.5vmax;
+  /* padding: 0.5vmax; */
   background-color: white;
-  /* fill: #000; */
+  /* fill: #000;
   text-align: center;
   display: block;
-  align-content: center;
+  align-content: center; */
   outline: none;
   border: none;
   /* corner-shape: squircle; */
   box-shadow: 0.5px 0.5px 8px 0 #6C7A8925;
-  border-radius: 0.5vmax;
-  transition: background-color 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* border-radius: 0.5vmax; */
+  transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   & svg {
     /* width: clamp(16px, 1vw + 1rem , 28px); 
@@ -237,23 +221,22 @@ main.Content {
 
 .overview-content {
   width: 100%;
-  margin: 0px auto;
+  margin-inline: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 4rem;
+  /* gap: 4rem; */
   align-items: center;
   justify-content: center;
 
 
   & .Avatar-Profile {
-    clip-path: circle(50% at 50% 50%);
+    aspect-ratio: 1;
     position: relative;
     overflow: hidden;
-    
-    
+
     & .profile-image {
-        object-fit: cover;
-        object-position: center;
+        background-color: #FFA07A;
+        background-image: url(../assests/image/logo.png);
         clip-path: circle(50% at 50% 50%);
     }
   }
@@ -278,7 +261,7 @@ main.Content {
 
       & h1 ~ p {
         margin-bottom: 1.25rem;
-        font-size: 1.2rem;
+        /* font-size: 1.2rem; */
         color: #8A99A7;
         line-height: 1.6;
       }
@@ -308,7 +291,7 @@ main.Content {
           transform: scale(1.05);
           outline: 2px #FFA07A solid;
           box-shadow: 0 4px 15px 0 #00000015;
-          transition: transform 0.3s ease-in-out; 
+          transition: transform .3s ease-in-out; 
                       /* outline 0.5s ease-in-out; */
         }
     }
@@ -325,8 +308,6 @@ div#Container-SocialMedia {
 
 
   & span {
-    width: clamp(30px, 1.3rem + 1.2vw, 50px);
-    height: clamp(30px, 1.3rem + 1.2vw, 50px);
     display: inline-block;
     text-align: center;
     
@@ -495,10 +476,11 @@ div#Container-SocialMedia {
 
 #carousel-container {
   width: 100%;
+  /* min-width: 501px; */
   position: relative;
-  min-block-size: 400px;
+  /* min-block-size: 400px; */
   max-block-size: 1042px;
-  aspect-ratio: 16 / 9;
+  /* aspect-ratio: 16 / 9; */
 
   .carouselAwards {
     max-width: 80%;
@@ -513,7 +495,7 @@ div#Container-SocialMedia {
       min-width: 100%;
       height: fit-content;
       display: flex;
-      aspect-ratio: 21 / 9;
+      /* aspect-ratio: 21 / 9; */
       box-shadow: 0 15px 40px #6c7a8910;
       border-radius: 20px;
       overflow: hidden;
@@ -663,9 +645,9 @@ div#Container-SocialMedia {
     align-items: center;
     inset: 0.2px solid #6C7A89;
     box-shadow: 0.5px 0.5px 8px 0 #6C7A8925;
-    min-inline-size: 170px;
+    /* min-inline-size: 170px;
     max-inline-size: 350px;
-    border-radius: 8px;
+    border-radius: 8px; */
 
     & i {
       width: 45px;
@@ -897,9 +879,9 @@ div#Container-SocialMedia {
 .contact-content {
   width: 100%;
   height: fit-content;
-  padding: 3rem 3rem 0;
-  position: relative;
-  display: grid;
+  /* padding: 3rem 3rem 0; */
+  /* position: relative; */
+  /* display: grid; */
   grid-template-columns: 0.6fr 1fr;
   gap: 4rem;
   align-items: center;
@@ -1169,8 +1151,12 @@ div#Container-SocialMedia {
           }
 
           & h3 ~ p {
-            color: rgba(255, 255, 255, 0.5);
-            /* margin-bottom: 5px; */
+            color: #ffffff80;
+            
+            a {
+              color: #ffffff80;
+              white-space: wrap;
+            }
           }
         }
       }
@@ -1207,10 +1193,10 @@ div#Container-SocialMedia {
 aside {
    grid-column: 3/4;
 }
-
+/* 
 nav, aside {
   width: clamp(15px, 3.91vw, 100px);
-}
+} */
 
 footer {
   width: calc(100vw - 50px);
@@ -1238,17 +1224,22 @@ footer {
 
 
 
-@media screen and (min-width: 501px) {
+/* @media (width >= 501px) {
   html, #root, .headerBar {
     width: 100%;
     max-width: 100%;
   }
 
   main.Content {
-    & section {
+    width: 100%;
+    position: relative;
+    
+    section {
+        height: auto;
         min-height: 100vh;
+        max-height: 150vh;
         padding-block: 35px;
-        min-block-size: 650px;
+        /* min-block-size: 650px; *
     }
   }
 
@@ -1260,6 +1251,14 @@ footer {
       width: inherit;
       height: inherit;
     }
+  }
+
+  #carousel-container {
+    inline-size: auto;
+    min-inline-size: 490px;
+    max-inline-size: 2337px;
+    /* max-width: ; *
+
   }
 
   .card {
@@ -1275,4 +1274,4 @@ footer {
   footer {
     width: calc(100% - 50px);
   }
-}
+} */

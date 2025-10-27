@@ -6,9 +6,9 @@ export default function Avatar({title, boxName, name, path, description, load}) 
         {
             // boxName = !null?
                 <div className={boxName}>
-                    { path && load && description !==null?
-                        <img title={title} src={path} alt={description} className={name} loading={load} /> : <></>
-                    }
+                    {/* { path && load && description !==null? */}
+                        <span title={title} alt={description} className={name} /> {/*: <></>*/}
+                    {/* } */}
                 </div>
             // :
             //     <></>
@@ -16,3 +16,4 @@ export default function Avatar({title, boxName, name, path, description, load}) 
     </>
   )
 }
+{/* <img title={title} src={path} alt={description} className={name} loading={load} /> : <></> */}

@@ -7,7 +7,7 @@ export default function Overview() {
     <>
         {/* <base href='assests/'/> */}
         <div className={"overview-content"}>
-            <Avatar boxName={"Avatar-Profile"} name={"profile-image"} path={".//assests/image/9.jpeg"} description={"Avatar Account"} load={"lazy"} />
+            <Avatar boxName={"Avatar-Profile"} name={"profile-image"} path={"../assests/image/logo.png"} description={"Avatar Account"} load={"lazy"} />
 
             <div className={"Container-text"}>
                 <h1>Hi, I'm Fahad Kaabi</h1>

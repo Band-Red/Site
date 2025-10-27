@@ -1,19 +1,26 @@
 @media (width <= 500px) {
-    /* html::-webkit-scrollbar {
-        width: 0;
-        display: none;
-    } */
-
     html {
         width: 100vw;
-        /* scroll-snap-type: y mandatory; */
+        max-width: 100vmin;
+        
         overflow: hidden;
     }
 
     #root {
-        /* min-width: 40vmin; */
+        width: inherit;
         min-height: 100dvh;
-        aspect-ratio: 1/1;
+        /* height: 600vh; */
+        aspect-ratio: 1;
+        /* min-inline-size: 460px; */
+        max-inline-size: 500px;
+        grid-template-areas:
+            "header" 
+            "aside"
+            "main" 
+            "aside"
+            "footer"
+            ;
+      overflow-x: hidden;
 
         &::-webkit-scrollbar {
             width: 0;
@@ -21,9 +28,10 @@
     
 
         .headerBar {
+            width: 100vw;
             padding: 1rem clamp(8px, 7vw, 25px) 0.5rem;
-            z-index: 10;
-
+            border-radius: clamp(8px, 3.2vw, 16px);
+            
             h2#user-name {
                 a {
                     font-size: clamp(0.9rem, 4vw, 1.25rem);
@@ -42,7 +50,6 @@
                         width: clamp(1rem, 5.2vw, 1.5rem);
                         height: clamp(1rem, 5.2vw, 1.5rem);
                         padding-inline: 4px;
-                        color: #6C7A89;
                         font-size: clamp(8px, 2.5vw, 12px);
                         transition: transform 0.3s ease-in-out;
 
@@ -94,67 +101,76 @@
                     block-size: auto;
                     max-block-size: 664px;
                     min-block-size: 585px;
-                    padding-block: 0 15px;
+                    /* padding-block: 0 15px; */
+                    margin-block: 0 35px;
                     justify-content: space-around;
                 }
 
                 &:nth-child(4) { padding-block-start: 0 !important; }
                 
                 .overview-content {
-                            height: fit-content;
-                            text-align: center;
-                            display: block;
-                            gap: 0;
-                
-                            & .Avatar-Profile {
-                                width: 100%;
-                                margin: clamp(1rem, 8vw, 2.5rem) 0;
-                                height: fit-content; 
-                                min-block-size: 100px;
-                                max-block-size: 300px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                clip-path: none;
-                
-                                & .profile-image {
-                                    width: clamp(150px, 35vw + 8.5rem, 250px);
-                                    min-block-size: 100px;
-                                    max-block-size: 300px;
-                                    position: relative;
-                                    aspect-ratio: 1;
-                                    background-color: #FFA07A;
-                                }
+                    height: fit-content;
+                    text-align: center;
+                    display: block;
+                    gap: 0;
+        
+                    & .Avatar-Profile {
+                        width: 100%;
+                        margin: clamp(1rem, 8vw, 2rem) 0;
+                        height: fit-content; 
+                        min-block-size: 100px;
+                        max-block-size: 265px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        clip-path: none;
+        
+                        & .profile-image {
+                            width: clamp(150px, 35vw + 8.5rem, 250px);
+                            min-block-size: 100px;
+                            max-block-size: 300px;
+                            position: relative;
+                            aspect-ratio: 1;
+                            background-color: #FFA07A;
+                        }
+                    }
+                    
+                    & .Container-text {
+                        display: inline-block;
+        
+                        & h1 {
+                            /* font-size: clamp(1.5em, 2.5vw + 1.27rem, 2em); */
+                            font-size: clamp(1.25em, 6.4vw, 2em);
+                        }
+        
+                        & h1 ~ p {
+                            /* font-size: clamp(0.8em, 2vw + 0.57rem, 1.15em); */
+                            font-size: clamp(0.75em, 3.6vw, 1.13em);
+                        }
+        
+                        & p ~ .content-buttons {
+                            width: 100%;
+                            justify-content: center;
+        
+                            & a {
+                                max-height: 40px;
+                                padding: clamp(8px, 2.6vw, 12px) clamp(12px, 4.3vw, 20px);
+                                font-size: clamp(12px, 3.5vw, 16px);
                             }
-                            
-                            & .Container-text {
-                                display: inline-block;
-                
-                                & h1 {
-                                    font-size: clamp(1.5em, 2.5vw + 1.27rem, 2em);
-                                }
-                
-                                & h1 ~ p {
-                                    font-size: clamp(0.8em, 2vw + 0.57rem, 1.15em);
-                                }
-                
-                                & p ~ .content-buttons {
-                                    width: 100%;
-                                    justify-content: center;
-                
-                                    & a {
-                                        max-height: 40px;
-                                        padding: clamp(8px, 2.6vw, 12px) clamp(12px, 4.3vw, 20px);
-                                        font-size: clamp(12px, 3.5vw, 16px);
-                                    }
-                                }
-                            }
+                        }
+                    }
                 }
                 
                 div#Container-SocialMedia {
                     margin-block-start: 3rem;
                     flex-direction: row;
                     justify-content: center;
+
+                    span {
+                        width: clamp(1.5rem, 6.4vw, 2rem);
+                        height: clamp(1.5rem, 6.4vw, 2rem);
+
+                    }
                 }
 
                 #Introduction-Awards, 
@@ -165,7 +181,8 @@
                     padding-inline: 0;
 
                     .title {
-                        font-size: clamp(1.25rem, 4vw + 0.5rem, 1.75rem);
+                        /* font-size: clamp(1.25rem, 4vw + 0.5rem, 1.75rem); */
+                        font-size: clamp(1.25rem, 4vw + 0.5rem, 1.5rem);
 
                         &::after {
                             bottom: -5px;
@@ -176,7 +193,8 @@
                     }
 
                     p {
-                        font-size: clamp(0.75rem, 3vw + 0.3rem, 1.15rem);
+                        /* font-size: clamp(0.75rem, 3vw + 0.3rem, 1.15rem); */
+                        font-size: clamp(0.75rem, 3vw + 0.3rem, 1rem);
                     }
                 }
                 
@@ -188,6 +206,7 @@
                     max-width: 500px;
                     min-width: 170px;
                     height: 100%;
+                    min-block-size: 400px;
 
                     &::before {
                         left: -25px;
@@ -236,7 +255,7 @@
                             }
 
                             .card-content {
-                                height: min-content;
+                                height: inherit;
                                 padding: clamp(15px, 3vw + 0.63rem, 25px);
                                 
                                 .rank-icon {
@@ -328,7 +347,8 @@
                     }
 
                     p {
-                        font-size: clamp(0.75rem, 3vw + 0.3rem, 1.15rem)
+                        /* font-size: clamp(0.75rem, 3vw + 0.3rem, 1.15rem) */
+                        font-size: clamp(0.75rem, 3vw + 0.3rem, 1rem)
                     }
                 }
 
@@ -342,6 +362,8 @@
                         padding: clamp(8px, 2.6vw, 12px);
                         column-gap: clamp(4px, 1.6vw, 8px);
                         min-inline-size: 155px;
+                        max-inline-size: 350px;
+                        border-radius: 8px;
 
                         i { 
                             width: clamp(1.5rem, 7.2vw, 2.25rem);
@@ -453,7 +475,7 @@
 
                         .project-card {
                             width: 100%;
-                            max-width: 450px;
+                            max-width: 550px;
                             aspect-ratio: 2;
                             transform: translateY(0);
                             max-block-size: 250px; 
@@ -470,7 +492,7 @@
                             }
 
                             h3 {
-                                font-size: clamp(0.75rem, 3.2vw, 1rem);
+                                font-size: clamp(0.75rem, 3.2vw, 1.15rem);
                             }
 
                             img, h3 {
