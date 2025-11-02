@@ -28,8 +28,8 @@
     
 
         .headerBar {
-            width: 100vw;
-            padding: 1rem clamp(8px, 7vw, 25px) 0.5rem;
+            width: calc(100vw - 12px); /* before = 100vw */
+            padding: 0.5rem calc(clamp(8px, 7vw, 25px) - 5px); /* OR before 1st= 1rem clamp(8px, 7vw, 25px) 0.5rem || 2nd= 0.5rem clamp(8px, 7vw, 25px) */
             border-radius: clamp(8px, 3.2vw, 16px);
             
             h2#user-name {
@@ -44,7 +44,7 @@
                 .toggle-container {
                     width: clamp(2rem, 15vw, 4rem);
                     height: fit-content;
-                    padding: 0.24rem;
+                    padding: 0.25rem;
                 
                     & .toggle-button {
                         width: clamp(1rem, 5.2vw, 1.5rem);
@@ -62,10 +62,15 @@
                 }
                 
                 .toggle-container ~ #btn-Menu {
-                    padding: 4px;
+                    padding: clamp(4px, 1.2vw , 6px); /* OR= 4px */
                     display: flex;
                     align-items: center;
-                    border-radius: clamp(4px, 1.7vw , 8px);
+                    border-radius: clamp(4px, 1.6vw , 8px); /* OR= clamp(4px, 1.7vw , 8px) */
+                
+                    svg {
+                        width: clamp(16px, 4vw, 20px);
+                        height: clamp(16px, 4vw, 20px);
+                    }
                 }
             }
         }
@@ -126,9 +131,9 @@
                         clip-path: none;
         
                         & .profile-image {
-                            width: clamp(150px, 35vw + 8.5rem, 250px);
+                            width: clamp(150px, 35vw + 8.5rem, 250px); /* OR= clamp(150px, 40vw, 200px) */
                             min-block-size: 100px;
-                            max-block-size: 300px;
+                            max-block-size: 300px; /* OR= 250px */
                             position: relative;
                             aspect-ratio: 1;
                             background-color: #FFA07A;
@@ -208,26 +213,9 @@
                     height: 100%;
                     min-block-size: 400px;
 
-                    &::before {
-                        left: -25px;
-                        background: linear-gradient(to right, #fafafa, #fafafa, #ffffff00);
-                    }
+                    &::before { left: -25px; }
 
-                    &::after {
-                        right: -25px;
-                        background: linear-gradient(to left, #fafafa, #fafafa, #ffffff00);
-                    }
-
-                    &::before,
-                    &::after {
-                        content: "";
-                        top: 0;
-                        width: 8%;
-                        height: 100%;
-                        position: absolute;
-                        pointer-events: none;
-                        z-index: 1;
-                    }
+                    &::after { right: -25px; }
                     
                     .carouselAwards {
                         width: calc(100% * 5 + 20px * 4);
@@ -238,7 +226,6 @@
                         animation: slide 20s infinite alternate;
                         
                         .card {
-                            cursor: pointer;
                             height: fit-content;
                             flex-direction: column-reverse;
                             aspect-ratio: 1;
@@ -256,7 +243,7 @@
 
                             .card-content {
                                 height: inherit;
-                                padding: clamp(15px, 3vw + 0.63rem, 25px);
+                                padding: clamp(16px, 3vw + 0.63rem, 24px);
                                 
                                 .rank-icon {
                                     position: absolute;
@@ -269,13 +256,13 @@
                                 }
 
                                 .Event-Name {
-                                    font-size: clamp(0.9rem, 3vw + 0.32rem, 1.25rem);
+                                    font-size: clamp(0.875em, 3.2vw, 1em);
                                     /* margin-block-end: 35px; */
                                 }
 
                                 .Description-Event {
                                     max-height: 85px;
-                                    font-size: clamp(0.75rem, 2.5vw + 0.22rem, 1rem);
+                                    font-size: clamp(0.75em, 2.8vw, 0.875em);
                                     /* white-space: nowrap; */
                                     text-overflow: ellipsis;
                                     display: -webkit-box;
@@ -377,7 +364,7 @@
                             justify-content: center;
                             /* align-items: center; */
 
-                            svg {
+                            /* svg {
                                 width: 100%;
                                 height: 100%;
 
@@ -385,14 +372,14 @@
                                     width: inherit;
                                     height: inherit;
                                 }
-                            }
+                            } */
                         }
 
                         i ~ .Content-Define {
                             width: calc(100% - (clamp(1.5rem, 7.2vw, 2.25rem) + clamp(4px, 1.6vw, 8px)));
 
                             .title {
-                                font-size: clamp(0.75rem, 2.5vw + 0.12rem, 0.9rem);
+                                font-size: clamp(0.75rem, 2.5vw + 0.12rem, 0.875rem);
                             }
 
                             p {
@@ -566,7 +553,7 @@
                             border-radius: clamp(12px, 4vw, 20px);
                         }
 
-                        h2 {
+                        h2.section-title {
                             padding-bottom: 8px;
                             font-size: clamp(1rem, 5.6vw, 1.75rem);
 
@@ -711,7 +698,7 @@
     footer {
         width: 95%;
         padding-block: clamp(0.5rem, 2.4vw, 0.75rem);
-        font-size: clamp(0.5rem, 4vw, 0.9rem);
+        font-size: clamp(0.5rem, 4vw, 0.75rem); /*OR before= clamp(0.5rem, 4vw, 0.9rem)*/
     }
 }
 
@@ -797,7 +784,7 @@
 /* For screens smaller than 300px */
 @media (width <= 300px) {
     .Container-buttons {
-        width: clamp(60px, 16vw + 3.3rem, 100px) !important;
+        width: clamp(60px, 30vw, 90px) !important;
 
         .toggle-container {
             /* width: 32px;

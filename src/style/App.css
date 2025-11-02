@@ -44,7 +44,7 @@ html:lang(ar) #root {
 }
 
 .headerBar {
-  top: 0px;
+  top: 5px; /* OR before= 0px; */
   /* padding-block: 1vmax; */
   filter: grayscale(15px);
   background-color: rgba(255, 255, 255, 0.06);
@@ -158,24 +158,24 @@ div#messageContainer {
   outline: none;
   border: none;
   /* corner-shape: squircle; */
-  box-shadow: 0.5px 0.5px 8px 0 #6C7A8925;
+  box-shadow: 0.5px 0.5px 8px 0 #6C7A8925; /* OR= 0.3px 0.3px 12px 0 #6C7A8935*/
   /* border-radius: 0.5vmax; */
   transition: background-color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   & svg {
     /* width: clamp(16px, 1vw + 1rem , 28px); 
-    height: clamp(16px, 1vw + 1rem , 28px); */
-    width: clamp(24px, 1.5vw + 0.4rem, 34px);
-    height: clamp(24px, 1.5vw + 0.4rem, 34px);
+    height: clamp(16px, 1vw + 1rem , 28px); 
+    width: clamp(24px, 1.5vw, 28px); /* OR= clamp(24px, 1.5vw + 0.4rem, 32px)*
+    height: clamp(24px, 1.5vw, 28px);*/
     fill: none;
     /* position: relative; */
-  }
-
-  & svg > path {
+    
+    & path {
       width: inherit;
       height: inherit;
       fill: #6C7A89;
     }
+  }
 }
 
 #btn-Menu:is(:focus, :focus-visible) {
@@ -207,7 +207,7 @@ main.Content {
     justify-content: center;
     align-items: center;
 
-    &:nth-child(2) {
+    /* &:nth-child(2) {
       justify-content: flex-start
     }
     
@@ -215,7 +215,7 @@ main.Content {
       width: 100%;
       height: max-content;
       justify-content: space-evenly;
-    }
+    } */
   }
 }
 
@@ -235,9 +235,15 @@ main.Content {
     overflow: hidden;
 
     & .profile-image {
-        background-color: #FFA07A;
-        background-image: url(../assests/image/logo.png);
-        clip-path: circle(50% at 50% 50%);
+      background-color: #FFA07A;
+      background-image: url(../assests/image/logo.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position-x: center;
+      background-position-y: 10px;
+      background-origin: border-box;
+      background-clip: border-box;
+      clip-path: circle(50% at 50% 50%);
     }
   }
 
@@ -433,7 +439,7 @@ div#Container-SocialMedia {
 #Introduction-Blog,
 #Introduction-Contact {
   width: 100%;
-  padding: 20px;
+  /* padding: 20px; */
   text-align: center;
   position: relative;
 
@@ -441,15 +447,16 @@ div#Container-SocialMedia {
     width: 100%;
     height: max-content;
     margin-bottom: 15px;
-    font-size: clamp(2rem, 2vw, 3rem);
+    /* font-size: clamp(2rem, 2vw, 3rem); */
     color: #6C7A89;
     position: relative;
 
     &::after {
       content: '';
-      left: 50%;
-      bottom: -12px;
-      width: 150px;
+      /* left: 50%;
+      bottom: -12px; */
+      bottom: -8px;
+      /* width: 150px; */
       height: 4px;
       background: #FFA07A;
       position: absolute;
@@ -459,8 +466,8 @@ div#Container-SocialMedia {
   }
 
   & h1.title ~ p.subtitle {
-    font-size: clamp(1.13rem, 1.2vw, 1.8rem);
-    margin: 15px auto 0;
+    /* font-size: clamp(1.13rem, 1.2vw, 1.75rem); 
+    margin: 15px auto 0;*/
     font-weight: 400;
     line-height: 1.5;
     color: #8A99A7;
@@ -482,8 +489,29 @@ div#Container-SocialMedia {
   max-block-size: 1042px;
   /* aspect-ratio: 16 / 9; */
 
+  &::before,
+  &::after {
+    content: "";
+    top: 0;
+    /* width: 8%; */
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &::before {
+    left: 0px;
+    background: linear-gradient(to right, #fafafa, #fafafa, #ffffff00);
+  }
+
+  &::after {
+    right: 0px;
+    background: linear-gradient(to left, #fafafa, #fafafa, #ffffff00);
+  }
+
   .carouselAwards {
-    max-width: 80%;
+    max-width: 95%; /* OR= 90% | 80% for Mobile*/
     height: 100%;
     margin-inline: auto;
     display: flex;
@@ -494,9 +522,11 @@ div#Container-SocialMedia {
     & .card {
       min-width: 100%;
       height: fit-content;
+      cursor: pointer;
       display: flex;
+      position: relative;
       /* aspect-ratio: 21 / 9; */
-      box-shadow: 0 15px 40px #6c7a8910;
+      box-shadow: 0 12px 40px #6c7a8910;
       border-radius: 20px;
       overflow: hidden;
 
@@ -512,17 +542,20 @@ div#Container-SocialMedia {
 
       & .card-content {
         max-height: 100%;
+        /* max-height: fit-content; */
         padding: clamp(30px, 1vw + 0.6rem, 35px);
         flex: 1;
         position: relative;
         display: block;
 
         & .rank-icon {
-          width: 100%;
+          /* width: 100%; 
           height: 50px;
-          font-size: clamp(2.5rem, 2.5vw + 1.1rem, 3rem);
+          font-size: clamp(2.5rem, 2.5vw + 1.1rem, 3rem);*/
           margin-bottom: 15px;
           color: #FFA07A;
+          text-align: center;
+          align-content: center;
         }
 
         & .Event-Name {
@@ -612,9 +645,9 @@ div#Container-SocialMedia {
 
   & h1 {
     &::after {
-      left: 9% !important;
-      width: 220px !important;
-      height: 3.5px !important;
+      /* left: 9% !important; 
+      width: 220px !important;*/
+      height: 3.5px;
     }
   }
 
@@ -626,40 +659,55 @@ div#Container-SocialMedia {
 #Container-Tools {
   width: 100%;
   margin-top: 25px;
-  padding-block: 35px;
+  /* padding-block: 35px; */
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  /* gap: 2.5rem; */
   place-items: center;
   justify-items: center;
 
   & span {
     width: 100%;
-    padding: 15px 20px;
+    padding: 16px 20px;
     position: relative;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    inset: 0.2px solid #6C7A89;
+    border: inset 0.2px solid #6C7A89;
     box-shadow: 0.5px 0.5px 8px 0 #6C7A8925;
     /* min-inline-size: 170px;
     max-inline-size: 350px;
     border-radius: 8px; */
 
     & i {
-      width: 45px;
-      height: 45px;
-      padding: 8px;
-      margin-right: 8px;
+      /* width: 45px;
+      height: 45px; */
+      /* padding: 8px; */
+      /* margin-right: 8px; */
       background: #6C7A8910;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 4px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+
+        path {
+          width: inherit;
+          height: inherit;
+        }
+      }
     }
 
     & i ~ div.Content-Define {
-      width: 100%;
+      /* width: 100%; */
+      width: fit-content;
       height: 100%;
       font-optical-sizing: auto;
       font-style: normal;
@@ -672,12 +720,12 @@ div#Container-SocialMedia {
       & h3 {
         color: #6C7A89;
         font-weight: 600;
-        font-size: 1rem;
+        /* font-size: 1rem;*/ 
         margin-bottom: 4px;
       }
 
       & h3 ~ p {
-        font-size: 0.8rem;
+        /* font-size: 0.8rem; */
         font-weight: 300;
         color: #8A99A7;
       }
@@ -882,7 +930,7 @@ div#Container-SocialMedia {
   /* padding: 3rem 3rem 0; */
   /* position: relative; */
   /* display: grid; */
-  grid-template-columns: 0.6fr 1fr;
+  /* grid-template-columns: 0.6fr 1fr; */
   gap: 4rem;
   align-items: center;
   justify-content: center;
@@ -892,7 +940,7 @@ div#Container-SocialMedia {
 
 
   & #contact-form {
-    padding: 2rem;
+    /* padding: 2rem; */
     background: white;
     position: relative;
     display: flex;
@@ -904,17 +952,17 @@ div#Container-SocialMedia {
 
     & legend {
       width: 100%;
-      font-size: 1.5rem;
+      /* font-size: 1.5rem; */
       font-weight: 600;
+      text-align: center;
       color: #6C7A89;
       display: block;
-      text-align: center;
     }
 
     .input-container, 
     .select-option-container,
     .message-Container {
-      padding-top: 4px;
+      padding-top: 2px; /* OR= 4px */
       background-color: white;
       position: relative;
       border: 2px solid #d1d5db;
@@ -935,16 +983,17 @@ div#Container-SocialMedia {
         top: -16px;
         left: 12px;
         padding: 4px 8px;
-        font-size: 1rem;
+        /* font-size: 1rem; */
         color: #8A99A7;
         background: white;
         position: absolute;
-        z-index: 1;
+        /* z-index: 1; */
         transition: all 0.3s ease;
       }
       
       & input, & select, & textarea {
         width: 99.7%;
+        height: inherit;
         padding: 8px 16px;
         font-size: 16px;
         color: #6C7A89;
@@ -952,6 +1001,8 @@ div#Container-SocialMedia {
         outline: none;
         border: none;
         /* border-radius: 0 0 6px 6px; */
+
+        &:not(select) { width: 100%; }
         
         &::placeholder {
           font-size: 14px;
@@ -997,7 +1048,7 @@ div#Container-SocialMedia {
         height: fit-content;
         height: 150px;
         min-height: 120px;
-        min-block-size: 120x;
+        /* min-block-size: 120x; */
         resize: none;
       }
     }
@@ -1005,7 +1056,7 @@ div#Container-SocialMedia {
     & button {
       cursor: pointer;
       width: calc(100% / 2 + 20px);
-      padding-block: 12px;
+      padding-block: 0.75rem;
       padding-inline: 1rem;
       margin-inline: auto;
       font-size: 16px;
@@ -1031,42 +1082,43 @@ div#Container-SocialMedia {
   }
 
   .info-section {
-    flex: 1;
-    min-width: 300px;
-    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    /* min-width: 300px;
+    padding: 40px; */
     color: white;
+    flex: 1;
+    /* background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); */
+    background: linear-gradient(135deg, #8A99A7 0%, #6C7A89 100%);
     position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 1rem;
     overflow: hidden;
 
     &::before {
       content: "";
-      position: absolute;
       top: -50px;
       right: -50px;
       width: 200px;
       height: 200px;
+      position: absolute;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
     }
 
     &::after {
       content: "";
-      position: absolute;
-      bottom: -80px;
       left: -80px;
+      bottom: -80px;
       width: 250px;
       height: 250px;
+      position: absolute;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 50%;
     }
 
     & .floating-element {
-      position: absolute;
       width: 100px;
       height: 100px;
+      position: absolute;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 20px;
       z-index: 0;
@@ -1079,28 +1131,28 @@ div#Container-SocialMedia {
     }
     
     & .floating-2 {
-      bottom: 15%;
       right: 10%;
+      bottom: 15%;
       animation: float 8s ease-in-out infinite;
     }
 
     hr {
-      border: none;
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
       margin: 25px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      border: none;
     }
         
     .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 20px;  
+      /* font-size: 1.8rem; 
+      margin-bottom: 20px; */ 
       position: relative;
-      padding-bottom: 15px;
+      /* padding-bottom: 15px; */
         
       &::after {
         content: "";
         position: absolute;
         bottom: 0;
-        right: 0;
+        /* right: 0; */
         width: 80px;
         height: 3px;
         background: rgba(255, 255, 255, 0.5);
@@ -1109,37 +1161,37 @@ div#Container-SocialMedia {
     }
 
     & .contact-info {
-      margin-top: 30px;
+      /* margin-top: 30px; */
       position: relative;
 
       & .contact-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 30px;
         padding: 20px;
+        /* margin-bottom: 30px; */
         background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
-        transition: all 0.3s;
+        display: flex;
+        align-items: center;
         border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        transition: all 0.3s;
 
         &:hover {
-          transform: translateX(-10px);
           background: #ffffff26;
+          transform: translateX(-10px);
         }
 
         & .contact-icon {
-          width: 60px;
-          height: 60px;
-          margin-right: 15px;
+          /* width: 60px;
+          height: 60px; 
+          margin-right: 15px;*/
           font-size: 1.5rem;
           background: #ffffff33;
           display: flex;
           flex-shrink: 0;
           align-items: center;
           justify-content: center;
-          border-radius: 50%;
+          border-radius: 50rem;
         }
 
         & .contact-icon ~ .contact-details {
@@ -1147,7 +1199,7 @@ div#Container-SocialMedia {
 
           & h3 {
             margin-bottom: 8px;
-            font-size: 1.3rem;
+            /* font-size: 1.3rem; */
           }
 
           & h3 ~ p {
@@ -1163,19 +1215,19 @@ div#Container-SocialMedia {
     }
 
     & .contact-info ~ .availability {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 30px;
+      /* padding: 20px; */
+      /* margin-top: 30px; */
       text-align: center;
+      background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
       border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
 
-      & h4 {
+      /* & h4 {
         margin-bottom: 10px;
         font-size: 1.3rem;
-      }
+      } */
 
       & h4 ~ p {
         color: rgba(255, 255, 255, 0.9);
@@ -1201,7 +1253,7 @@ nav, aside {
 footer {
   width: calc(100vw - 50px);
   height: 35px;
-  font-size: 1vmax;
+  /* font-size: 1vmax; */
   text-align: center;
   color: white;
   background-color: #FFA07A;
@@ -1210,8 +1262,8 @@ footer {
   align-items: center;
   justify-content: center;
   grid-column: 1 / 4;
-  border-top-right-radius: 1.2vmax;
-  border-top-left-radius: 1.2vmax;
+  /* border-top-right-radius: 1.2vmax;
+  border-top-left-radius: 1.2vmax; */
   box-shadow: 0 4px 8px #0000001a;
 
 

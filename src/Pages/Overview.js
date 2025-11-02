@@ -56,7 +56,7 @@ export default function Overview() {
                     </defs>
                 </svg>
 
-                <img className={"hover"} src={".//assests/icons/in-2.svg"} alt={"instagram"} loading={"lazy"} />
+                <img className={"hover"} src={"..//assests/icons/in-2.svg"} alt={"instagram"} loading={"lazy"} />
             </SocialMedia>
 
             <SocialMedia title={"X app account"} appName={"X"} link={"http://"} target={"_blank"}>
