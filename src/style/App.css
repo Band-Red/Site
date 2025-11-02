@@ -676,7 +676,8 @@ div#Container-SocialMedia {
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: center;
-    border: inset 0.2px solid #6C7A89;
+    border: 0.2px solid #6c7a8905;
+    border-style: inset;
     box-shadow: 0.5px 0.5px 8px 0 #6C7A8925;
     /* min-inline-size: 170px;
     max-inline-size: 350px;
