@@ -1,7 +1,7 @@
 @media (width <= 500px) {
     html {
         width: 100vw;
-        max-width: 100vmin;
+        /* max-width: 100vmin; */
         
         overflow: hidden;
     }
@@ -655,7 +655,7 @@
 
                         button {
                             width: 100%;
-                            background: linear-gradient(135deg, #6C7A89 0%, #8A99A7 100%);
+                            /* background: linear-gradient(135deg, #6C7A89 0%, #8A99A7 100%); */
                             transition: all 0.3s ease;
                             overflow: hidden;
 
