@@ -1,5 +1,6 @@
 import Introduction from "../components/pragraphs/Introduction";
 import DividerOpecity from "../components/dividers/DividerInlineopecity";
+import CarouselBlog from "../components/carousel/carouselBlog";
 
 export default function BlogTutorials() {
   return (
@@ -12,9 +13,11 @@ export default function BlogTutorials() {
 
       <DividerOpecity />
 
+      <CarouselBlog />
+{/* 
       <div className={"carousel-Blog"}>
         
-      </div>
+      </div> */}
     </>
   )
 }

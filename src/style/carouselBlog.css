@@ -1,0 +1,61 @@
+.carousel-Blog {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    gap: 1em;
+    /* gap: 3em; */
+    aspect-ratio: 21/9;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    anchor-name: --carousel;
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    &::scroll-button(right), &::scroll-button(left) {
+        width: 60px;
+        height: 60px;
+        padding-bottom: .1em;
+        content: ">";
+        cursor: pointer;
+        font-size: 3rem;
+        color: #6C7A89;
+        background-color: white;
+        position: fixed;
+        position-anchor: --carousel;
+        position-area: right center;
+        translate: -50%;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0.1px 0.1px 8px #6c7a8965;
+        /* z-index: 1; */
+    }
+
+    &::scroll-button(left) {
+        content: "<";
+        position-area: left center;
+        translate: 50%;
+    }
+
+    &::scroll-button(right):disabled, &::scroll-button(left):disabled {
+        cursor: auto;
+        opacity: 0.5;
+    }
+
+    .card {
+        /* height: 12em; */
+        width: 100%;
+        padding: 1em;
+        background: #9fa8aa;
+        /* flex: 0 0 50em; */
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        text-align: center;
+        align-content: center;
+        border-radius: .5em;
+        aspect-ratio: 4/9;
+        max-block-size: 900px;
+    }
+}

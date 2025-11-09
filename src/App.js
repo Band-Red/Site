@@ -1,6 +1,7 @@
 import "./style/App.css";
 import "./style/Mobile.css";
 import "./style/Large.css";
+// import "./style/carouselBlog.css"
 import ButtonIcon from './components/Buttons/BtnIcon';
 import TaggleLanguage from './components/Buttons/TaggleSwichLanguage'
 import Overview from "./Pages/Overview";
