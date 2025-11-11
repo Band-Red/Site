@@ -389,7 +389,7 @@
                     }
                 }
 
-                #Introduction-MyProjects ~ .carousel-projects {
+                #Introduction-MyProjects ~ .Container-carousel {
                     width: 100%;
                     position: relative;
                     block-size: 250px;
@@ -419,7 +419,7 @@
                     }
                     
 
-                    .Container-Cards {
+                    .carousel-Cards {
                         justify-content: normal;
                         align-items: normal;
                         overflow: hidden;
@@ -477,7 +477,7 @@
                     }
                 }
 
-                .carousel-projects ~ .description {
+                .Container-carousel ~ .description {
                     margin-block: 1.5rem  0;
                     height: auto;
                     line-height: normal;
@@ -765,7 +765,7 @@
 
     }
 
-    .carousel-projects {
+    .Container-carousel {
         block-size: 200px !important;
     }
 }
@@ -836,7 +836,7 @@
         }
     }
 
-    .carousel-projects {
+    .Container-carousel {
         block-size: clamp(150px, 66.67vw, 200px) !important;
     }
 

@@ -60,15 +60,15 @@ export default function MyProject() {
           subTitle={"I present to you a group of the most prominent projects that I have implemented recently."} 
       />
 
-      <div className={"carousel-projects"}>
+      <div className={"Container-carousel"}>
         <button onClick={prevProject} className={"arrow"}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="icon-left" viewBox="0 0 512 512">
+          <svg className="icon-left" viewBox="0 0 512 512">
             <path  d="M328 112L184 256l144 144" />
           </svg>
         </button>
 
         {/* Cards Container */}
-          <div className="Container-Cards">
+          <div className={"carousel-Cards"}>
             {projectsData.map((project, index) => (
               <ProjectCard
                 key={index}
@@ -79,7 +79,7 @@ export default function MyProject() {
           </div>
 
         <button onClick={nextProject} className={"arrow"}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="icon-right" viewBox="0 0 512 512">
+          <svg className="icon-right" viewBox="0 0 512 512">
             <path d="M184 112l144 144-144 144" />
           </svg>
         </button>
