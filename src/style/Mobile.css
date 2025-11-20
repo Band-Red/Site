@@ -97,9 +97,7 @@
                     block-size: auto;
                     max-block-size: 664px;
                     min-block-size: 585px;
-                    /* padding-block: 0 15px; 
-                    margin-block: 0 35px;*/
-                    justify-content: space-around;
+                    /* justify-content: space-around; */
                 }
 
                 &:nth-child(4) { padding-block-start: 0 !important; }
@@ -178,7 +176,7 @@
                         font-size: clamp(1.25rem, 4vw + 0.5rem, 1.5rem);
 
                         &::after {
-                            left: calc(100% / 2);
+                            left: calc((100% - clamp(65px, 24vw, 120px)) / 2);
                             bottom: -5px;
                             width: clamp(65px, 24vw, 120px);
                             height: 3px;
@@ -199,7 +197,7 @@
                         max-width: 500px;
                         min-width: 170px;
                         height: 100%;
-                        min-block-size: 450px;
+                        min-block-size: 400px;
                         align-content: center;
                         
                         &::before { left: -25px; width: 8%; }
@@ -208,12 +206,12 @@
                                             
                         .carouselAwards {
                             width: calc(100% * 5 + 20px * 4);
-                            margin-inline: 1rem;
+                            margin-inline: 1.35rem;
                             inline-size: auto;
                             min-inline-size: 170px;
                             max-inline-size: 400px;
                             gap: 35px;
-                            animation: slide 20s infinite alternate;
+                            animation: slide 10s infinite alternate;
                                                 
                             .card {
                                 height: fit-content;
@@ -224,25 +222,19 @@
                                 max-block-size: 400px;
                                 max-inline-size: 400px;
                                 transition: opacity 1s;
-                                                    
-                                &:hover {
-                                    .card-picture {
-                                        transform: scaleY(1.1)
-                                    }
-                                }
                         
                                 .card-content {
-                                    height: inherit;
+                                    max-height: fit-content;
                                     padding: clamp(16px, 3vw + 0.63rem, 24px);
                                                         
                                     .rank-icon {
-                                        position: absolute;
-                                        /* top: -75%; */
-                                        top: calc(((-400px) + 200px) + clamp(16px, 3vw + 0.63rem, 24px)); /* OR= calc(clamp(-171.438px, 31.67vw, -190px) +  clamp(1rem, 3.34vw, 1.25rem))*/
+                                        top: calc(((-400px) + 191px) + clamp(16px, 3vw + 0.63rem, 24px)); /* OR= calc(clamp(-171.438px, 31.67vw, -190px) +  clamp(1rem, 3.34vw, 1.25rem))*/
                                         left: 15px;
                                         width: 2rem;
                                         height: 2rem;
+                                        margin-bottom: unset;
                                         color: white;
+                                        position: absolute;
                                         z-index: 1;
                                     }
                         
@@ -252,6 +244,7 @@
                         
                                     .Description-Event {
                                         max-height: 85px;
+                                        margin-bottom: unset;
                                         font-size: clamp(0.75em, 2.8vw, 0.875em);
                                         text-overflow: ellipsis;
                                         display: -webkit-box;
@@ -273,7 +266,7 @@
                                             border-radius: 4px;
                                             justify-content: center;
                         
-                                            /* i {} */
+                                            i { aspect-ratio: 1/1;}
                         
                                             i ~ span {
                                                 font-size: clamp(0.85em, 0.63vw, 1.25em);
@@ -282,21 +275,32 @@
                                     }
                         
                                     .Event-date {
-                                        display: none;
+                                        padding-inline: clamp(12px, 3.2vw, 16px);
+                                        padding-block: clamp(8px, 2.4vw, 12px);
                                         font-size: clamp(0.5rem, 2.4vw, 0.75rem);
+                                        border-radius: 1rem;
                                     }
                                 }
                         
                                 .card-picture {
                                     min-height: 50%;
-                                    aspect-ratio: 21/9;
-                        
-                                    i {
-                                        block-size: auto;
-                                        min-block-size: 150px;
-                                        max-block-size: 200px;
-                                        position: relative;
-                                        object-fit: cover;
+                                    /* aspect-ratio: 21/9; */
+                                    position: relative; 
+
+                                    img {
+                                        min-width: 100%; 
+                                        height: 100%;
+                                        background-repeat: no-repeat;
+                                        background-size: cover;
+                                        /* background-image: url(../assests/image/9.jpeg); */
+                                        /* image-resolution: ; */
+                                    }                                
+                                    
+                                    &:hover {
+                                        transform: scaleY(1.08);
+
+                                        img {image-rendering: pixelated;}
+                                        
                                     }
                                 }
                             }
@@ -306,14 +310,14 @@
                 
                 &#WhatIuse {
                     #Introduction-WhatIuse {
-                        padding-block-start: 0;
+                        padding-block: 0 1rem;
                         padding-inline: 0;
     
                         .title {
                             font-size: clamp(1.2rem, 4.8vw,  1.5rem);
     
                             &::after {
-                                left: clamp(45.8px, 15vw, 75px) !important;
+                                left: 0 !important;
                                 bottom: -5px;
                                 width: clamp(90px, 30vw, 150px) !important;
                             }
@@ -325,7 +329,7 @@
                     #Container-Tools {
                         margin: 0;
                         padding-block: 0;
-                        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
                         gap: clamp(0.5rem, 3.2vw, 1rem);
     
                         span {
@@ -339,23 +343,11 @@
                                 width: clamp(1.5rem, 7.2vw, 2.25rem);
                                 height: clamp(1.5rem, 7.2vw, 2.25rem);
                                 max-width: 36px;
-                                /* min-width: 16px; */
                                 min-block-size: 24px;
                                 margin-right: 0 !important;
                                 padding: clamp(3px, 1vw, 5px) !important;
                                 display: flex;
                                 justify-content: center;
-                                /* align-items: center; */
-    
-                                /* svg {
-                                    width: 100%;
-                                    height: 100%;
-    
-                                    path {
-                                        width: inherit;
-                                        height: inherit;
-                                    }
-                                } */
                             }
     
                             i ~ .Content-Define {
@@ -401,6 +393,8 @@
                         width: clamp(24px, 7.2vw, 36px);
                         height: clamp(24px, 7.2vw, 36px);
                         position: absolute;
+                        background-color: unset;
+                        box-shadow: unset;
                         z-index: 1;
 
                         svg {
@@ -498,7 +492,7 @@
 
                 #Introduction-Blog {
                     .title::after {
-                        left: 45% !important;
+                        left: calc((100% - clamp(65px, 24vw, 120px)) / 2.15);
                         width: clamp(80px, 24vw, 120px) !important;
                     }
                 }
@@ -701,16 +695,12 @@
 
 @keyframes slide {
 0% { transform: translateX(0); }
-20% { transform: translateX(calc(-100% - 35px)); }
-40% { transform: translateX(calc(-200% - 35px * 2)); }
-60% { transform: translateX(calc(-300% - 35px * 3)); }
-80% { transform: translateX(calc(-400% - 35px * 4)); }
-100% { transform: translateX(calc(-400% - 35px * 4)); }
-75% { transform: translateX(calc(-300% - 35px * 3)); }
-50% { transform: translateX(calc(-200% - 35px * 2)); }
-25% { transform: translateX(calc(-100% - 35px)); }
-5% { transform: translateX(0); }
-/* 0% { transform: translateX(calc(-100% - 35px)); } */
+60% { transform: translateX(calc(-100% - 35px)); }
+100% { transform: translateX(calc(-200% - 35px * 2)); }
+90% { transform: translateX(calc(-200% - 35px * 2)); }
+50% { transform: translateX(calc(-100% - 35px)); }
+25% { transform: translateX(0); }
+0% { transform: translateX(0); }
 }
 
 
@@ -743,7 +733,7 @@
             min-block-size: 375px !important;
             &:hover {
                 .card-picture {
-                    transform: scaleY(1.03) !important;
+                    transform: scaleY(1.05) !important;
                 }
             }
         }
@@ -756,13 +746,11 @@
 
     #Introduction-WhatIuse {
         .title {
+            margin-bottom: unset;
             font-size: clamp(1.13rem, 4.99vw, 1.2rem) !important;
 
-            &::after {
-                bottom: 20px !important;
-            }
+            &::after { bottom: 20px !important; }
         }
-
     }
 
     .Container-carousel {

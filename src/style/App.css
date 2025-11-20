@@ -7,7 +7,6 @@
 
 html {
   width: 100%;
-  /* min-height: 100vh; */
   overflow: hidden auto;
   scroll-behavior: smooth;
 }
@@ -421,7 +420,7 @@ div#Container-SocialMedia {
       height: 4px;
       background: #FFA07A;
       position: absolute;
-      transform: translateX(-50%);
+      /* transform: translateX(-50%); */
       border-radius: 2px;
     }
   }
@@ -509,9 +508,10 @@ div#Container-SocialMedia {
         }
 
         & .Event-Name {
-          margin-bottom: 12px;
+          margin-bottom: 8px;
           font-size: clamp(1.1em, calc(1.4vw + 0.3rem), 2.5em);
           color: #6C7A89;
+          display: inline-block;
         }
 
         & .Event-Name ~ p.Description-Event {
@@ -543,6 +543,7 @@ div#Container-SocialMedia {
 
             & i {
               font-size: 1rem;
+              aspect-ratio: 1;
             }
 
             & i ~ span {
@@ -552,26 +553,22 @@ div#Container-SocialMedia {
           }
         }
         
-        & .stats ~ span.Event-date {
+        & span.Event-date {
           width: 100%;
-          padding: 8px 18px;
-          margin-top: 20px;
+          margin-top: 16px;
           font-size: clamp(0.9em, 0.7vw, 1em);
           font-weight: 500;
           color: #FFA07A;
           background: #ffa07a10;
           display: inline-block;
-          border-radius: 20px;
         }
       }
 
-      & .card-content ~ .card-picture {
+      & .card-picture {
         min-width: 25%;
         cursor: pointer;
-        font-size: 8rem;
+        font-size: 1em;
         color: #ffffff80;
-        background-size: cover;
-        background-position: center;
         flex: 0.8;
         position: relative;
         display: flex;
@@ -686,6 +683,7 @@ div#Container-SocialMedia {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0 8px #8A99A725;
     border: none;
     border-radius: 50%;
     transition: all 0.3s ease;
@@ -714,13 +712,10 @@ div#Container-SocialMedia {
     height: 100%;
     position: relative;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
-    gap: 3.5rem;
-    /* overflow: hidden; */
- 
+    gap: 3.5rem; 
 
-    & .project-card {
+    .project-card {
       height: 100%;
       color: #6C7A89;
       display: flex;
@@ -735,15 +730,17 @@ div#Container-SocialMedia {
       }
 
       img {
+        cursor: pointer;
         margin-bottom: 25px;
         background-color: #6C7A89;
         aspect-ratio: 1;
+        background-position: center;
         border-radius: 50%;
         box-shadow: 0 0 10px #8A99A750;
       }
 
       h3 {
-        font-size: 1rem;
+        cursor: pointer;
         font-weight: bold;
       }
     }
@@ -751,12 +748,12 @@ div#Container-SocialMedia {
 }
 
 .description {
-  max-width: 800px;
+  /* max-width: 800px; */
   margin-block: 3.5rem 0;
   color: #8A99A7;
   font-size: 1rem;
   line-height: 1.6;
-  position: relative;
+  /* position: relative; */
 
   h3 {
     margin-block: 2.5rem 1rem;
@@ -767,92 +764,6 @@ div#Container-SocialMedia {
 
   .highlight {
     font-weight: bold;
-  }
-}
-
-.last-Worked {
-  max-width: calc(100% - 200px);
-  margin: 35px auto 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 1fr);
-  gap: 35px;
-
-  & .project-card {
-    min-inline-size: 200px;
-    min-block-size: 320px;
-    max-inline-size: 320px;
-    max-block-size: 440px;
-    inset: 0.2px solid #6C7A89;
-    border-radius: 20px;
-    box-shadow: -0.5px -0.5px 10px 0 #8A99A710;
-    transition: all 0.3s ease;
-    overflow: hidden;
-
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px #6c7a8915;
-    }
-
-    & .project-logo {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #6C7A89, #FFA07A);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #FFF;
-      font-size: 2rem;
-    }
-
-    & .project-logo ~ .project-content {
-      width: 100%;
-      padding: 25px;
-      border-top-right-radius: 8px;
-
-      & h3 {
-        margin-bottom: 10px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: #6C7A89;
-      }
-
-      & h3 ~ p {
-        margin-bottom: 20px;
-        font-weight: 400;
-        color: #8A99A7;
-      }
-
-      & p ~ .project-View {
-        width: 40%;
-        font-weight: 500;
-        color: #8A99A7;
-        text-decoration: none;
-        display: inline-flex;
-        align-items: center;
-        justify-content: space-between;
-        transition: all 0.3s ease;
-
-        & svg {
-          width: 20px;
-          height: 15px;
-          fill: none;
-
-          & path {
-            stroke: #6C7A89;
-            stroke-width: 2.1px;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-          }
-        }
-
-        &:hover,
-        &:hover svg > path {
-          width: 44%;
-          stroke: #FFA07A;
-          color: #FFA07A;
-        }
-      }
-    }
   }
 }
 
@@ -874,7 +785,7 @@ div#Container-SocialMedia {
 
     &::scroll-button(right), 
     &::scroll-button(left) {
-      content: ">";
+      content: url(../assests/icons/chevron-forward-outline.svg);
       cursor: pointer;
       color: #6C7A89;
       background-color: white;
@@ -887,7 +798,7 @@ div#Container-SocialMedia {
     }
 
     &::scroll-button(left) {
-      content: "<";
+      content: url(../assests/icons/chevron-back-outline.svg);
       position-area: left center;
       translate: 50%;
     }
@@ -900,7 +811,10 @@ div#Container-SocialMedia {
 
     .card {
       flex: 0 0 100%;
-      background: #35707e;
+      /* background: #35707e; */
+      background: #356f7e48;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       scroll-snap-align: start;
       text-align: center;
       align-content: center;
@@ -991,17 +905,17 @@ div#Container-SocialMedia {
     }
 
     .select-option-container {
-      & select {
+      & select:not(option:first-child) {
         cursor: pointer;
         height: inherit;
         font-size: 14px;
-        color: #5d6f83;
+        color: #8A99A7;
 
         & option{
           background: #fafafa;
           
           &:first-child {
-            color: #8A99A7;
+            color: #8A99A795;
             font-size: 14px;
             display: none;
           }

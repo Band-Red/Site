@@ -1,7 +1,6 @@
 @media (width >= 501px) {
   html {
     width: 100%;
-    /* scroll-padding-top: 100px; */
     overflow: hidden;
     
     #root {
@@ -80,7 +79,7 @@
         
         section {
           height: auto;
-          min-height: 96vh; /* OR= 100vh*/
+          min-height: 95.75vh; /* OR= 100vh || 96vh*/
 
           &#overview {
             .overview-content {
@@ -131,18 +130,6 @@
             }
           }
 
-          #Introduction-Awards, 
-          #Introduction-MyProjects, 
-          #Introduction-Blog, 
-          #Introduction-Contact {
-            .title {
-              &::after {
-                width: clamp(120px, 5.88vw, 150px);
-                left: calc(100% / 2);
-              }
-            }
-          }
-
           & .divider {height: clamp(2px, 0.1vw, 2.5px);}
 
           &#Awards {
@@ -173,15 +160,14 @@
               .title {
                 &::after {
                   width: clamp(150px, 9.8vw, 250px);
-                  left: calc(clamp(150px, 9.8vw, 250px) / 2)
+                  left: 0
                 }
               }
             } 
 
             #Container-Tools {
-              align-content: center;
+              align-content: start;
               justify-items: stretch;
-              min-block-size:400px;
 
               span {
                 width: 100%;
@@ -368,7 +354,14 @@
     #Introduction-MyProjects, 
     #Introduction-Blog, 
     #Introduction-Contact {
-      .title { font-size: clamp(1.5em, 4.67vw, 1.75em) }
+      .title { 
+        font-size: clamp(1.5em, 4.67vw, 1.75em);
+
+        &::after {
+          width: clamp(100px, 20.07vw, 120px);
+          left: calc(100% / 2);
+        }
+      }
 
       .subtitle { font-size: clamp(1em, 3vw, 1.125em) }
     }
@@ -399,7 +392,7 @@
               padding: clamp(1rem, 3.34vw, 1.25rem);
 
               .rank-icon {
-                top: calc(((-432px) + clamp(171.438px, 31.67vw, 190px)) + clamp(1rem, 3.34vw, 1.25rem)); /* OR= calc(clamp(-171.438px, 31.67vw, -190px) +  clamp(1rem, 3.34vw, 1.25rem))*/
+                top: calc(((-436px) + clamp(171.438px, 31.67vw, 190px)) + clamp(1rem, 3.34vw, 1.25rem)); /* OR= calc(clamp(-171.438px, 31.67vw, -190px) +  clamp(1rem, 3.34vw, 1.25rem))*/
                 left: clamp(1rem, 3.34vw, 1.25rem);
                 width: clamp(2rem, 6vw, 2.25rem);
                 height: clamp(2rem, 6vw, 2.25rem);
@@ -422,6 +415,7 @@
 
               .Description-Event {
                 max-height: 80px;
+                text-indent: 8px;
                 font-size: clamp(0.875em, 2.67vw, 1em);
                 text-overflow: ellipsis;
                 display: -webkit-box;
@@ -432,26 +426,27 @@
               }
 
               .Event-date {
-                display: none;
+                padding: 12px 20px;
                 font-size: clamp(0.5rem, 2.4vw, 0.75rem);
+                border-radius: 20px;
               }
             }
 
             .card-picture {
-              min-height: 50%;
-              max-width: inherit;
               width: 100%;
               height: 100%;
+              min-height: 50%;
+              max-width: inherit;
               background-position: center;
               background-size: cover;
-              background-image: url(../assests/image/9.jpeg);
+              /* background-image: url(../assests/image/9.jpeg); */
               background-repeat: no-repeat;
               background-clip: border-box;
               background-origin: border-box;
 
               &:hover {
                 max-width: 100%;
-                transform: scaleY(1.05);
+                transform: scaleY(1.08);
               }
             }
           }
@@ -526,8 +521,10 @@
       .carousel-Blog {
         aspect-ratio: 9/9;
         &::scroll-button(right), &::scroll-button(left) {
-          width: clamp(2rem, 6vw, 2.25rem);
-          height: clamp(2rem, 6vw, 2.25rem);
+          /* width: clamp(2rem, 6vw, 2.25rem);
+          height: clamp(2rem, 6vw, 2.25rem); */
+          width: clamp(2.5rem, 7.34vw, 2.75rem);
+          height: clamp(2.5rem, 7.34vw, 2.75rem);
           font-size: clamp(1.25em, 4vw, 1.5em);
           border-radius: clamp(2.25rem, 2.51vw, 4rem);
         }
@@ -630,7 +627,7 @@
 
   @media (width >= 601px) {
     .headerBar {
-      top: clamp(5px, 6.67vw, 10px);
+      top: clamp(5px, 0.4vw, 10px);
       max-height: 80px;
       padding-block: clamp(0.5rem, 0.63vw, 1rem) !important;    /* clamp(1rem, 0.79vw, 1.25rem)*/
       border-radius: clamp(1rem, 0.79vw, 1.25rem) !important;   /* clamp(0.75rem, 2vw , 1rem); */
@@ -696,6 +693,11 @@
       .title {
         font-size: clamp(1.75em, 2.2vw, 3.5em); /* OR= clamp(1.75em, 1.89vw, 3em) */
 
+        &::after {
+          width: clamp(120px, 7.84vw, 200px);
+          left: calc((100% - clamp(120px, 7.84vw, 200px)) / 2)
+        }
+
         ~ p {
           font-size: clamp(1.125em, 1.26vw, 2em); /* OR= clamp(1.125em, 1.1vw, 1.75em) */
         }
@@ -733,12 +735,12 @@
           }
 
           &::scroll-button(right), &::scroll-button(left) {
-            content: ">";
+            content: url(../assests/icons/chevron-forward-outline.svg);
             cursor: pointer;
             width: clamp(2.5rem, 2.51vw, 4rem);
             height: clamp(2.5rem, 2.51vw, 4rem);
             font-size: clamp(1em, 1.73vw, 2.75em);
-            color: #6C7A89;
+            fill: #6C7A89;
             background-color: white;
             position: fixed;
             position-anchor: --carouselAwards;
@@ -751,7 +753,7 @@
           }
 
           &::scroll-button(left) {
-            content: "<";
+            content: url(../assests/icons/chevron-back-outline.svg);
             position-area: left center;
             translate: 50%;
           }
@@ -765,13 +767,11 @@
             width: 100%;
             height: 100%;
             max-height: 100%;
-            /* margin-inline: 5%; */
             flex: 0 0 100%;
             aspect-ratio: 16/9;
             border-radius: clamp(1.25rem, 0.95vw, 1.5rem);
             scroll-snap-align: start center;
             inline-size: auto;
-            /* min-inline-size: 520px; */
             
 
             .card-content {
@@ -793,7 +793,6 @@
               }
 
               .Event-Name { 
-                margin-bottom: clamp(1rem, 0.95vw, 1.5rem);
                 font-size: clamp(1.125em, 1.57vw, 2.5em);
                 line-height: 1.6;
               }
@@ -819,7 +818,6 @@
 
               .Event-date {
                 padding: clamp(0.5rem, 0.63vw, 1rem) clamp(1rem, 0.95vw, 1.5rem);
-                margin-top: unset;
                 font-size: clamp(0.75em, 0.95vw, 1.5em);
                 line-height: 1.5;
                 border-radius: clamp(0.75rem, 0.63vw, 1rem);
@@ -837,7 +835,8 @@
     #WhatIuse {
       #Container-Tools {
         /* max-height: 75vh; */
-        grid-template-columns: repeat(auto-fit, minmax(clamp(255px, 19.6vw, 500px), 1fr));
+        margin-top: clamp(1.5rem, 2.2vw, 3.5rem);
+        grid-template-columns: repeat(auto-fill, minmax(clamp(255px, 19.6vw, 500px), 1fr));
         gap: clamp(1rem, 2.67vw, 3rem);
         block-size: auto;
         min-block-size: 65vh;
@@ -879,12 +878,14 @@
 
     #my-projects {
       .Container-carousel {
-        max-height: 600px;
+        /* max-height: 600px; */
         padding-block: 1rem;
 
         .arrow {
-          width: clamp(2.5rem, 2.84vw, 4.5rem);
-          height: clamp(2.5rem, 2.84vw, 4.5rem);
+          /* width: clamp(2.5rem, 2.84vw, 4.5rem);
+          height: clamp(2.5rem, 2.84vw, 4.5rem); */
+          width: clamp(2.5rem, 2.36vw, 3.75rem);
+          height: clamp(2.5rem, 2.36vw, 3.75rem);
 
           & svg {
             width: 100%;
@@ -936,6 +937,10 @@
     }
 
     #Blog {
+      #Introduction-Blog{
+        .title::after { left: calc((100% - clamp(120px, 7.84vw, 200px)) / 2.1) }
+      }
+
       .carousel-Blog {
         aspect-ratio: 21 / 9;
 
@@ -1010,7 +1015,7 @@
         }
   
         #contact-form {
-          width: calc(100% / 2.5);
+          width: calc(100% / 2.25);
           min-width: 250px;
           padding: clamp(2rem, 2.51vw, 4rem); 
           gap: clamp(2rem, 2.04vw, 3.25rem);
@@ -1073,13 +1078,13 @@
       }
 
       &#WhatIuse {
-        justify-content: flex-start;
+        /* justify-content: flex-start; */
 
         #Container-Tools {
           max-height: 65vh !important;
           aspect-ratio: 9 / 4.25;
           block-size: auto;
-          min-block-size: 415px !important;
+          /* min-block-size: 415px !important; */
           max-block-size: 500px;
         }
       }
@@ -1160,7 +1165,6 @@
           &::before, &::after { width: 1.5%; }
           
           .carouselAwards {
-            /* padding-block: clamp(1rem, 0.63vw, 1.25rem) !important; */
             padding: clamp(1rem, 0.63vw, 1.25rem)  2.5% ;
             gap: 4rem;
 
@@ -1172,7 +1176,7 @@
 
             .card {
               flex: 0 0 100%;
-              margin-inline: 5%;
+              margin-inline: 1.5%;
               inline-size: auto;
               min-inline-size: 520px;
               max-inline-size: 1100px;
@@ -1182,6 +1186,8 @@
       }
 
       #my-projects {
+        justify-content: flex-start;
+
         .Container-carousel {
           max-height: 300px;
           aspect-ratio: 16/9;
@@ -1209,11 +1215,11 @@
           justify-items: center;
 
           p {
-            max-width: 1000px;
+            /* max-width: 1000px; */
 
             &:last-child {
               width: 100%;
-              max-width: 1000px;
+              /* max-width: 1000px; */
             }
           }
         }

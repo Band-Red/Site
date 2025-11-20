@@ -1,22 +1,22 @@
 {
   "short_name": "Personal website",
-  "name": "Band",
+  "name": "Fahad",
   "icons": [
-    // {
-    //   "src": "",
-    //   "sizes": "64x64 32x32 24x24 16x16",
-    //   "type": "image/x-icon"
-    // },
-    // {
-    //   "src": "",
-    //   "type": "image/png",
-    //   "sizes": "192x192"
-    // },
-    // {
-    //   "src": "",
-    //   "type": "image/png",
-    //   "sizes": "512x512"
-    // }
+    {
+      "src": "../src/assests/image/logo.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "../src/assests/image/logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "../src/assests/image/logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
   ],
   "start_url": "/Home",
   "display": "standalone",
